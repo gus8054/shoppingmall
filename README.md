@@ -1,37 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 포트폴리오 데모 쇼핑몰
+2026.01 (1인 개인 프로젝트)
 
-## Getting Started
+📌 Summary
 
-First, run the development server:
+중고 쇼핑몰 웹사이트
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+* 아토믹 디자인 적용
+* UI를 담당하는 Presentation 컴포넌트와 로직을 담당하는 Container 컴포넌트로 분리하여 개발
+* 컴포넌트 단위 테스트 구현
+* 스토리북으로 공유
+
+🤔 Background
+
+프론트 엔드 취업시장에 스토리북의 중요성이 커지고 있다.
+프론트 엔드 개발자는 백엔드 개발자와의 협업도 중요하지만, 디자이너와의 협업도 중요하다.
+스토리북은 기존에 대화와 문서로만 업무를 공유하던 환경에서 명확하고 시각적인 공유환경을 제공해준다.
+프론트 엔드 개발계에서 꼭 필요한 기술이라 생각해서 이번 기회에 적용을 해보았다.
+뿐만 아니라 스토리북을 이용한 개발 방법론 또한 부상하고 있는데 '컴포넌트 주도 개발'이다.
+아토믹 디자인 기법을 도입하여 가장 작은 단위인 아톰 컴포넌트를 먼저 만들고 레고처럼 쌓아나가는 방식이다.
+각각의 컴포넌트별로 컴포넌트 단위 테스트를 작성하여 놓치는 로직이 없도록 만들어준다.
+컴포넌트 주도 개발, 아토믹 디자인, 스토리북을 한데 모아 이 프로젝트에 적용해보았다.
+
+🔍 Meaning
+
+스토리북에 대한 전반적인 지식을 얻을 수 있었다.
+스토리북 공식 문서에 보면 여러 테스트를 스토리북 내에서 지원하고 있는데,
+개인적으로 컴포넌트 테스트( UI 테스트 )를 제외한 나머지 테스트들은 스토리북과 어울리지 않는 것 같다.
+폼 유효성 테스트 자체는 일종의 UI 테스트로서 여러 스토리를 통해 테스트하면 성공과 오류시 UI의 변화를 관찰할 수 있지만
+라우팅 테스트나 또는 api 테스트 E2E 테스트와 같은 데이터 중심 테스트는 따로 테스트 코드로 실행하는 것이 좋아보인다.
+보통 리액트 기반의 프로젝트에서 데이터를 가져오려면 훅을 사용한다.
+훅은 Context를 이용할 수도 있고, 외부 라이브러리에서 사용할 수도 있다.
+전역 상태를 다루는 훅, 지역 상태를 다루는 훅, 모두 스토리북 내에서 래핑을 해야한다.
+그러기 위해서는 래핑을 위한 컴포넌트를 따로 개발해야 한다.
+만약 useSWR와 같이 훅 자체가 api를 호출하는 형태라면 스토리북 내에서 mock을 따로 정의해야한다.
+이러한 작업들은 시간을 꽤 잡아먹는다고 생각한다.
+
+또한, 스토리북은 디자이너와의 협업을 위한 것이 주 목적이라고 생각하기에 웬만하면 가볍게 이용하는 것이 좋다.
+데이터 로직 테스트와 같은 테스트 코드를 스토리북 내에 포함하려면 위에서 언급한 Container 컴포넌트들을 사용해야한다.
+각각의 로직은 사이드 effect를 만들기 마련이고 컴포넌트 사이의 독립성을 해친다.
+따라서 Presentation 컴포넌트만 스토리북에 포함하는것이 좋다라는게 내 생각이다.
+
+🔨 Technology Stack(s)
+
+Typescript, React, next.js, react-content-loader, swr, styled-component, github pages, storybook, testing-library, jest
+
+
+⚙️ Setup & Usage
+
 ```
+# Install JavaScript Packages
+npm install
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Run Frontend Server
+npm start
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-"# shoppingmall" 
+# Run Storybook
+npm run storybook
+```
