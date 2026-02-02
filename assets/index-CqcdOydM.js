@@ -1,1 +1,0 @@
-import{j as r,a as o}from"./iframe-DX1DL66T.js";import{F as s}from"./index-DYK867Bv.js";const a=o(s)``,t=({children:e})=>r.jsx(a,{forwardedAs:"ol",children:e});t.__docgenInfo={description:"",methods:[],displayName:"Breadcrumb",props:{children:{required:!1,tsType:{name:"ReactNode"},description:""}}};export{t as B};
