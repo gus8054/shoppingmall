@@ -6,6 +6,7 @@
 중고 쇼핑몰 웹사이트
 
 * 아토믹 디자인 적용
+* Styled component로 디자인
 * UI를 담당하는 Presentation 컴포넌트와 로직을 담당하는 Container 컴포넌트로 분리하여 개발
 * 컴포넌트 단위 테스트 구현
 * 스토리북으로 공유
